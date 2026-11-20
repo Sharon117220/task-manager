@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- AUTH SCREEN -->
+    <div class="container" id="authScreen">
+        <h1>🔐 Welcome</h1>
+        <form id="authForm">
+            <input type="text" id="name" placeholder="Full Name" style="display:none;" required />
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="password" id="password" placeholder="Password" required />
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" style="display:none;" required />
+            <button type="submit" id="authBtn">Login</button>
+        </form>
+        <p style="text-align:center; margin-top:15px; font-size:14px;">
+            <span id="toggleAuth" style="color:#667eea; cursor:pointer;">Need an account? Register</span>
+        </p>
+    </div>
+
+    <!-- MAIN APP SCREEN (Hidden initially) -->
+    <div class="container" id="appScreen" style="display: none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <h1>📝 Task Manager</h1>
+            <button onclick="logout()" style="background:#f44336; padding:8px 15px; width:auto; border-radius:20px;">Logout</button>
+        </div>
+
+        <form id="taskForm">
+            <input type="hidden" id="taskId" />
+            <input type="text" id="title" placeholder="Task title" required />
+            <textarea id="description" placeholder="Description (optional)"></textarea>
+            <select id="status">
+                <option value="pending">Pending</option>
+                <option value="in-progress">In Progress</option>
+                <option value="completed">Completed</option>
+            </select>
+            <button type="submit" id="submitBtn">Add Task</button>
+        </form>
+
+        <div id="taskList"></div>
+    </div>
+
+    <!-- NO type="module" here! -->
+    <script src="/src/app.js"></script>
+</body>
+</html>
+ 
